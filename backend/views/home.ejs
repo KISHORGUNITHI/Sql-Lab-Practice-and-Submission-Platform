@@ -1,0 +1,57 @@
+<%- include('partials/header') %>
+
+<div class="hero">
+    <h1>SQL Lab Practice & Submission Platform</h1>
+    <p>Practice SQL queries interactively, test your skills against real database schemas, and master complex DBMS concepts effortlessly without setting up local software engines.</p>
+    <a href="/student" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.8rem 2rem; margin-top: 1rem;">Start Practicing</a>
+</div>
+
+<div class="text-center mb-4">
+    <h2 class="page-title mb-4">Select Your Role</h2>
+</div>
+
+<div class="grid-2 mb-4">
+    <div class="card interactive">
+        <div class="card-body text-center">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🎓</div>
+            <h3 class="text-success mb-3" style="color: var(--success);">Student</h3>
+            <p class="text-muted mb-4">Access detailed practice problems, write live SQL queries in the editor, and see real-time execution results and data tables instantly.</p>
+            <a href="/student" class="btn btn-outline" style="width: 100%;">Enter Student Area</a>
+        </div>
+    </div>
+    <div class="card interactive">
+        <div class="card-body text-center">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">👩‍🏫</div>
+            <h3 class="text-info mb-3" style="color: var(--info);">Teacher</h3>
+            <p class="text-muted mb-4">Create engaging new SQL challenges, define correct schema constraints, provide sample data, and manage your course questions seamlessly.</p>
+            <a href="/teacher" class="btn btn-outline" style="width: 100%;">Enter Teacher Area</a>
+        </div>
+    </div>
+</div>
+
+<div id="about" class="card mt-4 mb-4">
+    <div class="card-body text-center" style="padding: 4rem 2rem;">
+        <h2 class="page-title mb-4">About This Platform</h2>
+        <p class="text-muted">A comprehensive ecosystem for studying standard SQL dialects and relational mechanics.</p>
+        
+        <div class="grid-3 mt-4" style="text-align: left; margin-top: 3.5rem;">
+            <div>
+                <div class="text-primary mb-2" style="font-size: 2rem;">💻</div>
+                <h4 class="mb-2">Browser-Based Environment</h4>
+                <p class="text-muted" style="font-size: 0.95rem;">Write standard SQL statements in a lightweight, integrated environment and instantly check your logic without managing complex local servers or databases.</p>
+            </div>
+            <div>
+                <div class="text-primary mb-2" style="font-size: 2rem;">⚡</div>
+                <h4 class="mb-2">Live Query Execution</h4>
+                <p class="text-muted" style="font-size: 0.95rem;">Execute complex SELECT, JOIN, and SUBQUERY statements and visualize tabular outputs and intuitive execution errors generated on-the-fly dynamically.</p>
+            </div>
+            <div>
+                <div class="text-primary mb-2" style="font-size: 2rem;">🗄️</div>
+                <h4 class="mb-2">Advanced DBMS Concepts</h4>
+                <p class="text-muted" style="font-size: 0.95rem;">Solidify your understanding of key Database paradigms including primary constraints, foreign key relations, indexing routines, and custom aggregations.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

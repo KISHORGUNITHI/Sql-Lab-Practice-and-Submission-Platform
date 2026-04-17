@@ -1,0 +1,103 @@
+<%- include('../partials/header') %>
+
+<a href="/student" class="back-link">&larr; Back to Dashboard</a>
+
+<div class="split-layout">
+    <!-- LEFT COLUMN: Problem Details -->
+    <div class="card">
+        <div class="card-body">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 2rem;">
+                <h3 style="margin: 0; font-size: 1.5rem; color: var(--dark);">Find All Employees</h3>
+                <span class="badge easy">Easy</span>
+            </div>
+            
+            <div class="mb-4">
+                <h5 class="fw-bold mb-2">Description</h5>
+                <p class="text-muted">Write a SQL query to report all the employees in the <code>Employees</code> table.</p>
+                <p class="text-muted mt-4" style="margin-top: 0.5rem;">Return the result table ordered by <code>emp_id</code> in ascending order.</p>
+            </div>
+            
+            <div class="mt-4" style="margin-top: 2rem;">
+                <h5 class="fw-bold mb-2">Schema : Employees</h5>
+                <div class="schema-block">
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| emp_id      | int     |
+| name        | varchar |
+| department  | varchar |
+| salary      | int     |
++-------------+---------+
+emp_id is the primary key.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT COLUMN: Editor & Output -->
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+        
+        <!-- Editor Section -->
+        <div class="card" style="flex-grow: 1;">
+            <div class="card-header" style="background: var(--dark); color: var(--white); font-family: var(--font-mono); font-size: 0.9rem;">
+                <span>SQL Query Editor</span>
+            </div>
+            <div class="card-body" style="padding: 0; display: flex; flex-direction: column;">
+                <form action="/student/problem/1/run" method="POST" style="display: flex; flex-direction: column; flex-grow: 1; margin: 0;">
+                    <textarea name="query" class="code-editor" placeholder="-- Write your MySQL query statement below...&#10;SELECT * FROM Employees;"></textarea>
+                    
+                    <div class="card-footer" style="padding: 1rem 1.5rem;">
+                        <button type="submit" name="action" value="run" class="btn btn-outline" style="background: var(--white);">Run Code</button>
+                        <button type="submit" name="action" value="submit" class="btn btn-primary">Submit Query</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Output Section -->
+        <div class="output-container">
+            <div class="card-header border-bottom-0" style="padding: 1rem 1.5rem; background: var(--white); border-bottom: 1px solid var(--gray-200);">
+                <span>Execution Result</span>
+                <span class="badge" style="background-color: var(--success); color: white;">Status: Success</span>
+            </div>
+            <div class="table-responsive" style="border: none; border-radius: 0; margin: 0;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>emp_id</th>
+                            <th>name</th>
+                            <th>department</th>
+                            <th>salary</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-muted">
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>IT</td>
+                            <td>75000</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane Smith</td>
+                            <td>HR</td>
+                            <td>60000</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Bob Johnson</td>
+                            <td>Sales</td>
+                            <td>55000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer" style="padding: 0.8rem 1.5rem; justify-content: flex-end; font-size: 0.85rem; color: var(--text-muted); background: var(--white);">
+                Execution Time: <strong style="color: var(--dark); margin-left: 0.5rem;">12ms</strong>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

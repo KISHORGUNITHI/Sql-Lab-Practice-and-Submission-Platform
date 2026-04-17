@@ -1,0 +1,21 @@
+# Node modules (must ignore)
+node_modules/
+
+# Environment variables (VERY IMPORTANT)
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Optional build folders
+dist/
+build/
+
+# VS Code settings (optional)
+.vscode/

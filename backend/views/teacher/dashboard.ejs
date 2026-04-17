@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+
+<div class="dashboard-header">
+    <h2 class="page-title">Teacher Dashboard</h2>
+    <a href="/teacher/create" class="btn btn-primary">+ Create New Problem</a>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <span>Manage Problems</span>
+    </div>
+    <div class="card-body" style="padding: 0;">
+        <div class="table-responsive" style="border: none; border-radius: 0;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Difficulty</th>
+                        <th style="text-align: right;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (problems && problems.length > 0) { %>
+                        
+                        <% problems.forEach((p) => { %>
+                        <tr>
+                            <td class="text-muted"><%= p.problem_id %></td>
+                            <td class="fw-bold"><%= p.title %></td>
+                            <td>
+                                <span class="badge <%= p.difficulty.toLowerCase() %>">
+                                    <%= p.difficulty %>
+                                </span>
+                            </td>
+                            <td class="actions-cell">
+                                <form action="/teacher/delete/<%= p.problem_id %>" method="POST" style="display: inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Are you sure?')">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }) %>
+
+                    <% } else { %>
+                        <tr>
+                            <td colspan="4">No Problems Found</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

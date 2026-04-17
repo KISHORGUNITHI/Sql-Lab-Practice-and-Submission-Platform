@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+
+<a href="/teacher" class="back-link">&larr; Back to Teacher Dashboard</a>
+
+<div style="max-width: 800px; margin: 0 auto; width: 100%;">
+    <div class="card">
+        <div class="card-header" style="background: var(--white); padding: 2.5rem 2.5rem 1rem 2.5rem; border-bottom: none;">
+            <div>
+                <h3 style="color: var(--dark); margin: 0; font-size: 1.8rem;">Create New Problem</h3>
+                <p class="text-muted" style="margin-top: 0.5rem;">Fill out the details below to add a new SQL practice question to the platform.</p>
+            </div>
+        </div>
+        
+        <div class="card-body" style="padding: 1rem 2.5rem 2.5rem 2.5rem;">
+            <form action="/teacher/create" method="POST">
+                
+                <div class="form-group">
+                    <label for="title" class="form-label">Problem Title</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="e.g. Find All Employees" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="difficulty" class="form-label">Difficulty Level</label>
+                    <select class="form-select" id="difficulty" name="difficulty" required>
+                        <option value="Easy" selected>Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="description" class="form-label">Problem Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="4" placeholder="Explain what the student needs to solve in this problem..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="schema" class="form-label">SQL Schema Structure</label>
+                    <textarea class="form-control" id="schema" name="schema" rows="6" placeholder="CREATE TABLE Employees (&#10;  emp_id INT PRIMARY KEY,&#10;  name VARCHAR(50),&#10;  salary INT&#10;);&#10;&#10;INSERT INTO Employees VALUES (1, 'John', 5000);" style="font-family: var(--font-mono);" required></textarea>
+                    <p class="text-muted" style="font-size: 0.85em; margin-top: 0.5rem;">Provide the schema definition and sample insertion scripts.</p>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 2rem;">
+                    <label for="expectedQuery" class="form-label">Expected Query (Answer Key)</label>
+                    <textarea class="form-control" id="expectedQuery" name="expectedQuery" rows="4" placeholder="SELECT * FROM Employees;" style="font-family: var(--font-mono);" required></textarea>
+                </div>
+
+                <div class="card-footer" style="padding: 2rem 0 0 0; background: var(--white); border-top: 1px solid var(--gray-200);">
+                    <a href="/teacher" class="btn btn-outline">Cancel</a>
+                    <button type="submit" class="btn btn-primary" style="padding-left: 2rem; padding-right: 2rem;">Save Problem</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
