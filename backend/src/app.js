@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import teacherRoutes from './routes/teacherRoutes.js';
+import studentRoutes from './routes/studentRoutes.js';
 
 
 // Fix for __dirname when using ES modules
@@ -32,34 +33,18 @@ app.get('/', (req, res) => {
 });
 
 // Student Area
-app.get('/student', (req, res) => {
-    res.render('student/dashboard');
-});
-
-app.get('/student/problem/:id', (req, res) => {
-    res.render('student/solve-question');
-});
+app.use('/student',studentRoutes);
 
 app.post('/student/problem/:id/run', (req, res) => {
     // Currently redirects back; implement run logic later
     res.redirect(`/student/problem/${req.params.id}`);
 });
 
-// Teacher Area
-
-// Create Problem
-app.get('/teacher/create', (req, res) => {
-    res.render('teacher/create-question');
-});
-
-// Problem Creation Form submission
+/* Teacher Area
+1. Create Problem
+2. Problem Creation Form submission
+3. Any edit or delete actions placeholders*/
 app.use('/teacher', teacherRoutes);
-
-// Any edit or delete actions placeholders
-app.get('/teacher/edit/:id', (req, res) => {
-    res.send('Edit functionality coming soon');
-});
-
 
 
 // --- Server Startup ---

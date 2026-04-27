@@ -2,7 +2,7 @@
 
 <div class="dashboard-header">
     <h2 class="page-title">Student Dashboard</h2>
-    <span class="badge" style="background-color: var(--gray-300); color: var(--dark); padding: 0.6rem 1.2rem; border-radius: 20px; font-size: 0.9rem;">Total Solved: 0 / 20</span>
+    <span class="badge" style="background-color: var(--gray-300); display:inline-block; color: var(--dark); padding: 0.6rem 1.2rem; border-radius: 20px; font-size: 0.9rem;">Total Solved: 0 / <%= problems.length %></span>
 </div>
 
 <div class="card">
@@ -16,39 +16,28 @@
                     <tr>
                         <th>#</th>
                         <th>Problem Name</th>
-                        <th>Topic</th>
                         <th>Difficulty</th>
                         <th style="text-align: right;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="text-muted">1</td>
-                        <td class="fw-bold">Find All Employees</td>
-                        <td class="text-muted">Basic SELECT</td>
-                        <td><span class="badge easy">Easy</span></td>
-                        <td class="actions-cell">
-                            <a href="/student/problem/1" class="btn btn-outline btn-sm">Solve Question</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-muted">2</td>
-                        <td class="fw-bold">Second Highest Salary</td>
-                        <td class="text-muted">Aggregate Functions</td>
-                        <td><span class="badge medium">Medium</span></td>
-                        <td class="actions-cell">
-                            <a href="/student/problem/2" class="btn btn-outline btn-sm">Solve Question</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-muted">3</td>
-                        <td class="fw-bold">Department Top Three Salaries</td>
-                        <td class="text-muted">Joins & Subqueries</td>
-                        <td><span class="badge hard">Hard</span></td>
-                        <td class="actions-cell">
-                            <a href="/student/problem/3" class="btn btn-outline btn-sm">Solve Question</a>
-                        </td>
-                    </tr>
+                    <% if(problems && problems.length>0) { %>
+                        <% problems.forEach((p) => { %>
+                            <tr>
+                                <td class="text-muted"><%= p.problem_id %></td>
+                                <td class="fw-bold"><%= p.title %></td>
+                                <td><span class="badge <%= p.difficulty.toLowerCase() %>""><%= p.difficulty %></span></td>
+                                <td class="actions-cell">
+                                    <a href="/student/problem/<%= p.problem_id %>" class="btn btn-outline btn-sm">Solve Question</a>
+                                </td>
+                            </tr>
+                        <% }); %>
+
+                    <% } else { %>
+                        <tr>
+                            <td colspan="4">Nothing to Do</td>
+                        </tr>
+                    <% } %>
                 </tbody>
             </table>
         </div>

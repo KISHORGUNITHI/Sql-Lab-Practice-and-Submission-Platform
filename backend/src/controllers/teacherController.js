@@ -1,5 +1,9 @@
 import pool from '../db/connection.js';
 
+export const showCreateForm=async(req,res)=>{
+    res.render("teacher/create-question.ejs");
+};
+
 export const createProblem = async (req, res) => {
     const { title, difficulty, description, schema, expectedQuery } = req.body;
 
